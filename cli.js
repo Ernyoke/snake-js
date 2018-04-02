@@ -17,7 +17,7 @@ const Matrix = {
     }
     return R.identity;
   },
-  toString: xsxs => xsxs.map(xs => xs.join(' ')).join('\r\n'),
+  toString: xsxs => R.map(xs => xs.join(' '))(xsxs).join('\r\n'),
   fromState: state => R.pipe(
     Matrix.make,
     Matrix.addSnake(state),
@@ -43,7 +43,7 @@ process.stdin.on('keypress', (str, key) => {
 });
 
 // Game loop
-const show = () => console.log('\x1Bc' + Matrix.toString(Matrix.fromState(State)));
+const show = () => console.log(`\x1Bc${Matrix.toString(Matrix.fromState(State))}`);
 const step = () => {
   State = Snake.next(State);
 };

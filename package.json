@@ -24,6 +24,8 @@
     "ramda": "^0.25.0"
   },
   "standard": {
-    "env": [ "mocha" ]
+    "env": [
+      "mocha"
+    ]
   }
 }
