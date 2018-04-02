@@ -9,21 +9,10 @@ const WEST = { x: -1, y: 0 };
 // Helper functions
 const random = min => max => Math.floor(Math.random() * max) + min;
 
-const spec = o => x =>
-  R.reduce(
-    (acc, obj) => Object.assign(acc, obj),
-    {},
-    R.map(k => R.objOf(k)(o[k](x)))(Object.keys(o)),
-  );
-
-// Randomness
 const rndPos = table => ({
   x: random(0)(table.cols - 1),
   y: random(0)(table.rows - 1),
 });
-
-// Point operations
-const pointEq = p1 => p2 => p1.x === p2.x && p1.y === p2.y;
 
 // Next head value based on current state
 const nextHead = (state) => {
@@ -40,8 +29,8 @@ const nextHead = (state) => {
 };
 
 // Booleans
-const willEat = state => pointEq(nextHead(state))(state.apple);
-const willCrash = state => state.snake.find(pointEq(nextHead(state)));
+const willEat = state => R.equals(nextHead(state))(state.apple);
+const willCrash = state => state.snake.find(R.equals(nextHead(state)));
 const validMove = move => state =>
   state.moves[0].x + move.x !== 0 || state.moves[0].y + move.y !== 0;
 
@@ -78,7 +67,7 @@ const initialState = () => ({
   apple: { x: 16, y: 2 },
 });
 
-const next = spec({
+const next = R.applySpec({
   rows: R.prop('rows'),
   cols: R.prop('cols'),
   moves: nextMoves,
