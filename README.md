@@ -15,4 +15,4 @@ npm start
 * Ctrl-c to quit (in terminal).
 
 ## Credits
-This implementation is based on Christopher Okhravi's snake (https://github.com/chrokh/snake) implementation and functional coding tutorial: https://www.youtube.com/watch?v=poVMBGe1THE
+This implementation is based on Christopher Okhravi's snake (https://github.com/chrokh/snake) implementation and his functional coding tutorial: https://www.youtube.com/watch?v=poVMBGe1THE
