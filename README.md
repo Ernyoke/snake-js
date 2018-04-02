@@ -13,3 +13,6 @@ npm start
 * Collect apples.
 * Avoid crashing.
 * Ctrl-c to quit (in terminal).
+
+## Credits
+This implementation is based on Christopher Okhravi's snake (https://github.com/chrokh/snake) implementation and functional coding tutorial: https://www.youtube.com/watch?v=poVMBGe1THE
